@@ -49,7 +49,7 @@ function LoginForm() {
     if (cleaned.length !== 10) { setPhoneError("Enter a valid 10-digit phone number"); return; }
     setPhoneError("");
     try {
-      await sendOtp.mutateAsync(`+91${cleaned}`);
+      await sendOtp.mutateAsync(cleaned);      // API expects bare 10-digit number
       setPhase("otp");
       startCountdown(60);
     } catch {
@@ -62,18 +62,18 @@ function LoginForm() {
     setOtpError("");
     setPhase("verifying");
     try {
-      const res = await verifyOtp.mutateAsync({ phone: `+91${phone.replace(/\D/g, "")}`, otp });
+      const res = await verifyOtp.mutateAsync({ phone: phone.replace(/\D/g, ""), otp });
+      const u = res.user as any;
       setUser({
-        id: res.user.id,
-        name: res.user.name,
-        phone: res.user.phone,
-        role: res.user.role,
-        avatarUrl: res.user.avatarUrl,
-        unreadNotifications: res.user.unreadNotifications,
+        id: u.id,
+        name: [u.firstName, u.lastName].filter(Boolean).join(" ") || "",
+        phone: u.phone,
+        role: u.role,
+        avatarUrl: u.profilePhoto ?? undefined,
+        unreadNotifications: 0,
       });
       setPhase("done");
-      const isNew = !res.user.name;
-      router.replace(isNew ? "/auth/onboarding" : redirect);
+      router.replace(res.isNewUser ? "/auth/onboarding" : redirect);
     } catch {
       setOtpError("Incorrect OTP. Please try again.");
       setPhase("otp");
@@ -85,7 +85,7 @@ function LoginForm() {
     if (countdown > 0) return;
     setOtp("");
     setOtpError("");
-    await sendOtp.mutateAsync(`+91${phone.replace(/\D/g, "")}`);
+    await sendOtp.mutateAsync(phone.replace(/\D/g, ""));
     startCountdown(60);
   }, [countdown, phone, sendOtp]);
 

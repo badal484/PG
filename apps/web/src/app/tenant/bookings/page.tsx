@@ -2,38 +2,11 @@
 
 import Link from "next/link";
 import { BedDouble, ChevronRight, Clock } from "lucide-react";
-import { Badge, Button, EmptyState } from "@/components/ui";
+import { Badge, Button, EmptyState, Skeleton } from "@/components/ui";
 import { formatInr } from "@/lib/utils";
-import type { BookingStatus } from "@/lib/api/bookings";
+import { useBookings } from "@/lib/api/bookings";
+import type { BookingStatus, Booking } from "@/lib/api/bookings";
 
-const MOCK_BOOKINGS = [
-  {
-    id: "bk-001",
-    propertyName: "Sunrise Boys PG",
-    propertySlug: "sunrise-boys-pg-koramangala",
-    locality: "Koramangala, Bangalore",
-    bedLabel: "Bed A",
-    roomNumber: "201",
-    checkIn: "2024-12-01",
-    checkOut: undefined as string | undefined,
-    monthlyRent: 10200,
-    status: "ACTIVE" as BookingStatus,
-    photoUrl: "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=400&q=80",
-  },
-  {
-    id: "bk-000",
-    propertyName: "Green Valley PG",
-    propertySlug: "green-valley-pg-hsr-layout",
-    locality: "HSR Layout, Bangalore",
-    bedLabel: "Bed B",
-    roomNumber: "102",
-    checkIn: "2024-06-01",
-    checkOut: "2024-11-28",
-    monthlyRent: 8500,
-    status: "COMPLETED" as BookingStatus,
-    photoUrl: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=400&q=80",
-  },
-];
 
 const STATUS_BADGE: Record<BookingStatus, { label: string; variant: "active" | "due" | "overdue" | "neutral" | "paid" }> = {
   ACTIVE: { label: "Active", variant: "active" },
@@ -57,16 +30,17 @@ const STATUS_ACTIONS: Record<BookingStatus, Array<{ label: string; href: (id: st
   CANCELLED: [{ label: "Browse properties", href: () => `/search` }],
 };
 
-function BookingCard({ booking }: { booking: typeof MOCK_BOOKINGS[0] }) {
+function BookingCard({ booking }: { booking: Booking }) {
   const { label, variant } = STATUS_BADGE[booking.status];
   const actions = STATUS_ACTIONS[booking.status];
 
   return (
     <div className="overflow-hidden rounded-2xl border border-border bg-white shadow-sm">
       <div className="flex gap-4 p-4">
-        <div className="h-20 w-24 shrink-0 overflow-hidden rounded-lg bg-slate-100">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={booking.photoUrl} alt={booking.propertyName} className="h-full w-full object-cover" />
+        <div className="h-20 w-24 shrink-0 overflow-hidden rounded-lg bg-slate-100 flex items-center justify-center">
+          {booking.propertyPhoto
+            ? <img src={booking.propertyPhoto} alt={booking.propertyName} className="h-full w-full object-cover" />
+            : <BedDouble className="h-8 w-8 text-slate-300" />}
         </div>
         <div className="flex-1 min-w-0">
           <div className="flex items-start justify-between gap-2">
@@ -75,9 +49,8 @@ function BookingCard({ booking }: { booking: typeof MOCK_BOOKINGS[0] }) {
             </Link>
             <Badge variant={variant} className="shrink-0 text-xs">{label}</Badge>
           </div>
-          <p className="mt-0.5 text-xs text-text-secondary">{booking.locality}</p>
           <p className="mt-1 text-xs text-text-tertiary">
-            Room {booking.roomNumber} · {booking.bedLabel}
+            {booking.roomNumber ? `Room ${booking.roomNumber} · ` : ""}{booking.bedLabel}
           </p>
           <div className="mt-2 flex items-center gap-3 text-xs text-text-secondary">
             <span className="flex items-center gap-1">
@@ -106,8 +79,18 @@ function BookingCard({ booking }: { booking: typeof MOCK_BOOKINGS[0] }) {
 }
 
 export default function BookingsPage() {
-  const current = MOCK_BOOKINGS.filter((b) => b.status === "ACTIVE" || b.status === "CONFIRMED" || b.status === "PENDING");
-  const past = MOCK_BOOKINGS.filter((b) => b.status === "COMPLETED" || b.status === "CANCELLED");
+  const { data: bookings = [], isLoading } = useBookings();
+  const current = bookings.filter((b) => ["ACTIVE", "CONFIRMED", "PENDING_KYC", "PENDING_PAYMENT", "PENDING_AGREEMENT"].includes(b.status));
+  const past = bookings.filter((b) => b.status === "COMPLETED" || b.status === "CANCELLED");
+
+  if (isLoading) {
+    return (
+      <div className="grid gap-4 pb-24 lg:pb-6">
+        <h1 className="text-2xl font-black">My Bookings</h1>
+        {[1, 2].map((i) => <Skeleton key={i} className="h-40 rounded-2xl" />)}
+      </div>
+    );
+  }
 
   return (
     <div className="grid gap-6 pb-24 lg:pb-6">
@@ -131,7 +114,7 @@ export default function BookingsPage() {
         </section>
       )}
 
-      {MOCK_BOOKINGS.length === 0 && (
+      {!isLoading && bookings.length === 0 && (
         <EmptyState
           icon={<BedDouble className="h-10 w-10 text-text-tertiary" />}
           title="No bookings yet"

@@ -36,7 +36,7 @@ export class ReviewsService {
         tenantId,
         propertyId: dto.propertyId,
         bookingId: dto.bookingId,
-        rating: dto.rating,
+        overallRating: dto.rating,
         foodRating: dto.foodRating,
         maintenanceRating: dto.maintenanceRating,
         staffRating: dto.staffRating,
@@ -58,7 +58,7 @@ export class ReviewsService {
 
     const avgRating =
       reviews.length > 0
-        ? reviews.reduce((sum, r) => sum + r.rating, 0) / reviews.length
+        ? reviews.reduce((sum, r) => sum + r.overallRating, 0) / reviews.length
         : 0;
 
     return { reviews, avgRating: Math.round(avgRating * 10) / 10, totalReviews: reviews.length };

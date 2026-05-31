@@ -1,4 +1,4 @@
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:3001/api";
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:4000/api/v1";
 const TOKEN_KEY = "roomly_token";
 const REFRESH_KEY = "roomly_refresh";
 
@@ -95,7 +95,14 @@ async function request<T>(endpoint: string, options: RequestInit = {}, retry = t
   }
 
   if (response.status === 204) return undefined as T;
-  return response.json() as Promise<T>;
+
+  // API always wraps successful responses: { success: true, data: T, meta? }
+  // Unwrap so callers receive T directly
+  const json = await response.json() as { success?: boolean; data?: T; meta?: unknown } | T;
+  if (json && typeof json === "object" && "success" in json && "data" in json) {
+    return (json as { data: T }).data as T;
+  }
+  return json as T;
 }
 
 export const apiClient = {

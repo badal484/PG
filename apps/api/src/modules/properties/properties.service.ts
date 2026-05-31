@@ -102,7 +102,7 @@ export class PropertiesService {
             orderBy: { monthlyRent: 'asc' },
           },
           reviews: {
-            select: { rating: true },
+            select: { overallRating: true },
           },
         },
       }),
@@ -114,7 +114,7 @@ export class PropertiesService {
       startingRent: p.beds[0]?.monthlyRent ?? null,
       avgRating:
         p.reviews.length > 0
-          ? p.reviews.reduce((s: number, r: any) => s + r.rating, 0) / p.reviews.length
+          ? p.reviews.reduce((s: number, r: any) => s + r.overallRating, 0) / p.reviews.length
           : null,
       reviewCount: p.reviews.length,
     }));
@@ -162,7 +162,7 @@ export class PropertiesService {
         foodMenus: true,
         staff: {
           where: { isActive: true },
-          select: { id: true, staffName: true, role: true, phone: true },
+          select: { id: true, role: true, userId: true },
         },
       },
     });

@@ -7,7 +7,7 @@ async function main() {
   const admin = await prisma.user.create({
     data: {
       email: 'admin@roomly.in',
-      phone: '+919999999999',
+      phone: '9999999999',
       firstName: 'Super',
       lastName: 'Admin',
       role: UserRole.SUPER_ADMIN,
@@ -20,7 +20,7 @@ async function main() {
   const owner = await prisma.user.create({
     data: {
       email: 'owner@example.com',
-      phone: '+918888888888',
+      phone: '8888888888',
       firstName: 'Rahul',
       lastName: 'Sharma',
       role: UserRole.OWNER,
@@ -121,7 +121,7 @@ async function main() {
     const manager = await prisma.user.create({
       data: {
         email: `manager${i}@roomly.in`,
-        phone: `+91777777777${i}`,
+        phone: `777777777${i}`,
         firstName: `Manager`,
         lastName: `${i}`,
         role: UserRole.MANAGER,
@@ -143,7 +143,7 @@ async function main() {
     const tenant = await prisma.user.create({
       data: {
         email: 'tenant1@example.com',
-        phone: '+919988776655',
+        phone: '9988776655',
         firstName: 'Ankit',
         lastName: 'Kumar',
         role: UserRole.TENANT,

@@ -20,6 +20,7 @@ interface VerifyOtpResponse {
   user: AuthUser;
   accessToken: string;
   refreshToken: string;
+  isNewUser: boolean;
 }
 
 export function useSendOtp() {

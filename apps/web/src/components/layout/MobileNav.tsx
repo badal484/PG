@@ -7,8 +7,8 @@ import { useUser } from "@/app/providers";
 const tabs = [
   { href: "/", label: "Home", icon: Home },
   { href: "/search", label: "Search", icon: Search },
-  { href: "/bookings", label: "Bookings", icon: BedDouble },
-  { href: "/profile", label: "Profile", icon: User },
+  { href: "/tenant/bookings", label: "Bookings", icon: BedDouble },
+  { href: "/tenant/profile", label: "Profile", icon: User },
 ];
 
 export function MobileNav() {
