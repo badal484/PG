@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useState, useCallback, ReactNode } from "react";
+import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
 import en from "./locales/en.json";
 import hi from "./locales/hi.json";
 
@@ -43,13 +43,15 @@ import React from "react";
 const I18nContext = createContext<I18nContextValue | null>(null);
 
 export function I18nProvider({ children }: { children: ReactNode }) {
-  const [locale, setLocaleState] = useState<Locale>(() => {
-    if (typeof window === "undefined") return "en";
+  // Always start with "en" on the server; detect on client via useEffect to avoid hydration mismatch
+  const [locale, setLocaleState] = useState<Locale>("en");
+
+  useEffect(() => {
     const stored = localStorage.getItem(STORAGE_KEY) as Locale | null;
-    if (stored && stored in LOCALES) return stored;
+    if (stored && stored in LOCALES) { setLocaleState(stored); return; }
     const browser = navigator.language.slice(0, 2) as Locale;
-    return browser in LOCALES ? browser : "en";
-  });
+    if (browser in LOCALES) setLocaleState(browser);
+  }, []);
 
   const setLocale = useCallback((l: Locale) => {
     setLocaleState(l);
