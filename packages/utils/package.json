@@ -1,0 +1,21 @@
+{
+  "name": "@roomly/utils",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "lint": "eslint src/",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "date-fns": "^3.6.0"
+  },
+  "devDependencies": {
+    "@roomly/config": "workspace:*",
+    "@roomly/types": "workspace:*",
+    "typescript": "^5.4.5"
+  }
+}

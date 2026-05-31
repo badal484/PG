@@ -1,0 +1,28 @@
+export const roomlyTokens = {
+  colors: {
+    primary: "#1A1A2E",
+    primaryLight: "#16213E",
+    accent: "#E8471C",
+    accentLight: "#FF6B3D",
+    success: "#16A34A",
+    warning: "#D97706",
+    error: "#DC2626",
+    background: "#FAFAFA",
+    surface: "#FFFFFF",
+    border: "#E5E7EB",
+    textPrimary: "#111827",
+    textSecondary: "#6B7280",
+    textTertiary: "#9CA3AF",
+    verifiedPremium: "#F59E0B",
+    verifiedStandard: "#3B82F6",
+    verifiedBudget: "#6B7280",
+  },
+  typography: {
+    fontFamily: "Inter, system-ui, sans-serif",
+    sizes: [12, 14, 16, 18, 20, 24, 30, 36, 48],
+    weights: [400, 500, 600, 700],
+    lineHeights: { tight: 1.25, normal: 1.5, relaxed: 1.75 },
+  },
+  spacing: [4, 8, 12, 16, 20, 24, 32, 40, 48, 64, 80, 96],
+  radius: [4, 8, 12, 16, 24, 9999],
+};

@@ -1,0 +1,14 @@
+{
+  "name": "@roomly/config",
+  "version": "0.0.0",
+  "private": true,
+  "files": [
+    "eslint-preset.js",
+    "tsconfig.base.json",
+    "tsconfig.next.json",
+    "tsconfig.node.json"
+  ],
+  "devDependencies": {
+    "typescript": "^5.4.5"
+  }
+}
