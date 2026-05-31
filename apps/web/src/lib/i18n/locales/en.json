@@ -1,0 +1,172 @@
+{
+  "nav": {
+    "search": "Search PGs",
+    "cities": "Cities",
+    "forOwners": "For Owners",
+    "login": "Login",
+    "dashboard": "Dashboard",
+    "logout": "Log out"
+  },
+  "hero": {
+    "headline": "Find verified PGs & co-living spaces",
+    "subheadline": "Trusted stays in Bangalore, Mumbai, Hyderabad and more",
+    "searchPlaceholder": "City, locality or pincode",
+    "searchBtn": "Search"
+  },
+  "search": {
+    "title": "Search Results",
+    "filters": "Filters",
+    "sortBy": "Sort by",
+    "noResults": "No properties found",
+    "noResultsHint": "Try a different city or remove some filters",
+    "bedsAvailable": "{{count}} bed available",
+    "bedsAvailable_plural": "{{count}} beds available",
+    "from": "From",
+    "perMonth": "/month",
+    "viewDetails": "View details",
+    "genderPolicy": {
+      "GENTS_ONLY": "Gents Only",
+      "LADIES_ONLY": "Ladies Only",
+      "UNISEX_SEPARATED": "Unisex (Separated)",
+      "COUPLE_FRIENDLY": "Couple Friendly"
+    },
+    "tier": {
+      "VERIFIED_PREMIUM": "Premium",
+      "VERIFIED_STANDARD": "Standard",
+      "VERIFIED_BUDGET": "Budget"
+    }
+  },
+  "property": {
+    "bookNow": "Book Now",
+    "selectBed": "Select a bed",
+    "available": "Available",
+    "occupied": "Occupied",
+    "maintenance": "Under maintenance",
+    "reserved": "Reserved",
+    "amenities": "Amenities",
+    "rules": "House Rules",
+    "location": "Location",
+    "reviews": "Reviews",
+    "noReviews": "No reviews yet",
+    "writeReview": "Write a review",
+    "deposit": "Security Deposit",
+    "moveIn": "Move-in Date",
+    "stayType": "Stay Type"
+  },
+  "booking": {
+    "title": "Complete Your Booking",
+    "steps": {
+      "bed": "Select Bed",
+      "kyc": "KYC Verification",
+      "payment": "Payment",
+      "agreement": "Agreement",
+      "confirmed": "Confirmed"
+    },
+    "payNow": "Pay Now",
+    "totalPayable": "Total Payable",
+    "breakdown": {
+      "deposit": "Security Deposit",
+      "firstMonthRent": "First Month Rent",
+      "platformFee": "Platform Fee",
+      "total": "Total"
+    },
+    "confirmed": {
+      "title": "Booking Confirmed!",
+      "message": "Your booking at {{property}} is confirmed. Check your WhatsApp for details.",
+      "bookingId": "Booking ID"
+    }
+  },
+  "kyc": {
+    "title": "KYC Verification",
+    "subtitle": "Verify your identity to complete booking",
+    "aadhaar": "Aadhaar Number",
+    "pan": "PAN Number",
+    "selfie": "Take Selfie",
+    "upload": "Upload Document",
+    "submit": "Submit for Verification",
+    "pending": "Verification in Progress",
+    "verified": "KYC Verified",
+    "failed": "Verification Failed"
+  },
+  "tenant": {
+    "dashboard": "My Dashboard",
+    "myBookings": "My Bookings",
+    "payRent": "Pay Rent",
+    "raiseComplaint": "Raise Complaint",
+    "myDocuments": "My Documents",
+    "referFriend": "Refer a Friend",
+    "profile": "My Profile",
+    "rentDue": "Rent Due",
+    "rentOverdue": "Rent Overdue",
+    "nextDue": "Next due on {{date}}"
+  },
+  "owner": {
+    "dashboard": "Owner Dashboard",
+    "myProperties": "My Properties",
+    "finance": "Finance",
+    "analytics": "Analytics",
+    "team": "My Team",
+    "subscription": "Subscription",
+    "addProperty": "Add Property",
+    "totalRevenue": "Total Revenue",
+    "occupancyRate": "Occupancy Rate",
+    "pendingRent": "Pending Rent"
+  },
+  "pms": {
+    "bedMap": "Bed Map",
+    "rentCollection": "Rent Collection",
+    "complaints": "Complaints",
+    "expenses": "Expenses",
+    "tenants": "Tenants",
+    "addTenant": "Add Tenant",
+    "food": "Food Menu",
+    "staff": "Staff",
+    "visitors": "Visitors",
+    "meters": "Meter Readings",
+    "assets": "Assets"
+  },
+  "common": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "view": "View",
+    "loading": "Loading…",
+    "error": "Something went wrong",
+    "retry": "Try again",
+    "back": "Back",
+    "next": "Next",
+    "submit": "Submit",
+    "confirm": "Confirm",
+    "close": "Close",
+    "yes": "Yes",
+    "no": "No",
+    "or": "or",
+    "and": "and",
+    "in": "in",
+    "from": "From",
+    "to": "To",
+    "of": "of",
+    "all": "All",
+    "none": "None",
+    "search": "Search",
+    "filter": "Filter",
+    "sort": "Sort",
+    "clear": "Clear",
+    "apply": "Apply",
+    "today": "Today",
+    "yesterday": "Yesterday",
+    "thisMonth": "This Month",
+    "lastMonth": "Last Month"
+  },
+  "errors": {
+    "required": "This field is required",
+    "invalidEmail": "Enter a valid email address",
+    "invalidPhone": "Enter a valid 10-digit phone number",
+    "invalidOtp": "Invalid OTP — please try again",
+    "otpExpired": "OTP expired — request a new one",
+    "networkError": "Network error — check your connection",
+    "unauthorized": "You are not authorized to view this page",
+    "notFound": "Page not found"
+  }
+}

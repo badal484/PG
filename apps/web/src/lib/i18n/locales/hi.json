@@ -1,0 +1,172 @@
+{
+  "nav": {
+    "search": "PG खोजें",
+    "cities": "शहर",
+    "forOwners": "मालिकों के लिए",
+    "login": "लॉग इन",
+    "dashboard": "डैशबोर्ड",
+    "logout": "लॉग आउट"
+  },
+  "hero": {
+    "headline": "सत्यापित PG और को-लिविंग स्पेस खोजें",
+    "subheadline": "बैंगलोर, मुंबई, हैदराबाद और अन्य शहरों में विश्वसनीय आवास",
+    "searchPlaceholder": "शहर, इलाका या पिनकोड",
+    "searchBtn": "खोजें"
+  },
+  "search": {
+    "title": "खोज परिणाम",
+    "filters": "फ़िल्टर",
+    "sortBy": "क्रमबद्ध करें",
+    "noResults": "कोई संपत्ति नहीं मिली",
+    "noResultsHint": "किसी दूसरे शहर को आज़माएं या फ़िल्टर हटाएं",
+    "bedsAvailable": "{{count}} बेड उपलब्ध",
+    "bedsAvailable_plural": "{{count}} बेड उपलब्ध",
+    "from": "से",
+    "perMonth": "/महीना",
+    "viewDetails": "विवरण देखें",
+    "genderPolicy": {
+      "GENTS_ONLY": "केवल पुरुष",
+      "LADIES_ONLY": "केवल महिला",
+      "UNISEX_SEPARATED": "यूनिसेक्स (अलग)",
+      "COUPLE_FRIENDLY": "कपल फ्रेंडली"
+    },
+    "tier": {
+      "VERIFIED_PREMIUM": "प्रीमियम",
+      "VERIFIED_STANDARD": "स्टैंडर्ड",
+      "VERIFIED_BUDGET": "बजट"
+    }
+  },
+  "property": {
+    "bookNow": "अभी बुक करें",
+    "selectBed": "बेड चुनें",
+    "available": "उपलब्ध",
+    "occupied": "भरा हुआ",
+    "maintenance": "मरम्मत में",
+    "reserved": "आरक्षित",
+    "amenities": "सुविधाएं",
+    "rules": "घर के नियम",
+    "location": "स्थान",
+    "reviews": "समीक्षाएं",
+    "noReviews": "अभी तक कोई समीक्षा नहीं",
+    "writeReview": "समीक्षा लिखें",
+    "deposit": "सुरक्षा जमा",
+    "moveIn": "शिफ्ट-इन तारीख",
+    "stayType": "ठहरने का प्रकार"
+  },
+  "booking": {
+    "title": "बुकिंग पूरी करें",
+    "steps": {
+      "bed": "बेड चुनें",
+      "kyc": "KYC सत्यापन",
+      "payment": "भुगतान",
+      "agreement": "समझौता",
+      "confirmed": "पुष्टि हुई"
+    },
+    "payNow": "अभी भुगतान करें",
+    "totalPayable": "कुल देय",
+    "breakdown": {
+      "deposit": "सुरक्षा जमा",
+      "firstMonthRent": "पहले महीने का किराया",
+      "platformFee": "प्लेटफ़ॉर्म शुल्क",
+      "total": "कुल"
+    },
+    "confirmed": {
+      "title": "बुकिंग पुष्टि हो गई!",
+      "message": "{{property}} में आपकी बुकिंग पुष्टि हो गई। विवरण के लिए WhatsApp देखें।",
+      "bookingId": "बुकिंग ID"
+    }
+  },
+  "kyc": {
+    "title": "KYC सत्यापन",
+    "subtitle": "बुकिंग पूरी करने के लिए अपनी पहचान सत्यापित करें",
+    "aadhaar": "आधार नंबर",
+    "pan": "PAN नंबर",
+    "selfie": "सेल्फी लें",
+    "upload": "दस्तावेज़ अपलोड करें",
+    "submit": "सत्यापन के लिए जमा करें",
+    "pending": "सत्यापन जारी है",
+    "verified": "KYC सत्यापित",
+    "failed": "सत्यापन विफल"
+  },
+  "tenant": {
+    "dashboard": "मेरा डैशबोर्ड",
+    "myBookings": "मेरी बुकिंग",
+    "payRent": "किराया भरें",
+    "raiseComplaint": "शिकायत दर्ज करें",
+    "myDocuments": "मेरे दस्तावेज़",
+    "referFriend": "दोस्त को रेफर करें",
+    "profile": "मेरी प्रोफ़ाइल",
+    "rentDue": "किराया बकाया",
+    "rentOverdue": "किराया अतिदेय",
+    "nextDue": "अगला {{date}} को देय"
+  },
+  "owner": {
+    "dashboard": "मालिक डैशबोर्ड",
+    "myProperties": "मेरी संपत्तियां",
+    "finance": "वित्त",
+    "analytics": "विश्लेषण",
+    "team": "मेरी टीम",
+    "subscription": "सदस्यता",
+    "addProperty": "संपत्ति जोड़ें",
+    "totalRevenue": "कुल राजस्व",
+    "occupancyRate": "अधिभोग दर",
+    "pendingRent": "बकाया किराया"
+  },
+  "pms": {
+    "bedMap": "बेड मैप",
+    "rentCollection": "किराया संग्रह",
+    "complaints": "शिकायतें",
+    "expenses": "खर्च",
+    "tenants": "किरायेदार",
+    "addTenant": "किरायेदार जोड़ें",
+    "food": "भोजन मेनू",
+    "staff": "स्टाफ",
+    "visitors": "आगंतुक",
+    "meters": "मीटर रीडिंग",
+    "assets": "संपत्ति"
+  },
+  "common": {
+    "save": "सहेजें",
+    "cancel": "रद्द करें",
+    "delete": "हटाएं",
+    "edit": "संपादित करें",
+    "view": "देखें",
+    "loading": "लोड हो रहा है…",
+    "error": "कुछ गलत हो गया",
+    "retry": "पुनः प्रयास करें",
+    "back": "वापस",
+    "next": "अगला",
+    "submit": "जमा करें",
+    "confirm": "पुष्टि करें",
+    "close": "बंद करें",
+    "yes": "हाँ",
+    "no": "नहीं",
+    "or": "या",
+    "and": "और",
+    "in": "में",
+    "from": "से",
+    "to": "तक",
+    "of": "का",
+    "all": "सभी",
+    "none": "कोई नहीं",
+    "search": "खोजें",
+    "filter": "फ़िल्टर",
+    "sort": "क्रमबद्ध",
+    "clear": "साफ़ करें",
+    "apply": "लागू करें",
+    "today": "आज",
+    "yesterday": "कल",
+    "thisMonth": "इस महीने",
+    "lastMonth": "पिछले महीने"
+  },
+  "errors": {
+    "required": "यह फ़ील्ड आवश्यक है",
+    "invalidEmail": "एक वैध ईमेल पता दर्ज करें",
+    "invalidPhone": "10 अंकों का वैध फ़ोन नंबर दर्ज करें",
+    "invalidOtp": "अमान्य OTP — कृपया पुनः प्रयास करें",
+    "otpExpired": "OTP की समय सीमा समाप्त — नया अनुरोध करें",
+    "networkError": "नेटवर्क त्रुटि — अपना कनेक्शन जांचें",
+    "unauthorized": "आप इस पृष्ठ को देखने के लिए अधिकृत नहीं हैं",
+    "notFound": "पृष्ठ नहीं मिला"
+  }
+}

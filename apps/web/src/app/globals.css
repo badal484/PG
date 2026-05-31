@@ -104,3 +104,77 @@ textarea {
   background: rgba(232, 71, 28, 0.16);
   color: var(--text-primary);
 }
+
+/* ── Accessibility: WCAG AA focus indicators ─────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Remove default focus ring but keep focus-visible */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Ensure interactive elements always show cursor */
+button,
+[role="button"],
+[role="link"],
+label[for] {
+  cursor: pointer;
+}
+
+/* ── Accessibility: reduced motion ──────────────────────────────────────────  */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ── Accessibility: screen-reader only utility ──────────────────────────────  */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.focus\:not-sr-only:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: revert;
+  margin: revert;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}
+
+/* ── Touch targets: minimum 44×44px ─────────────────────────────────────── */
+.touch-target {
+  min-height: 44px;
+  min-width: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Print styles ─────────────────────────────────────────────────────────── */
+@media print {
+  nav,
+  footer,
+  .no-print {
+    display: none !important;
+  }
+}
