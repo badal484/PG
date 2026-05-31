@@ -7,6 +7,8 @@ import { JwtAuthGuard } from './common/guards/jwt-auth.guard';
 import { RolesGuard } from './common/guards/roles.guard';
 import { JwtStrategy } from './common/strategies/jwt.strategy';
 import { PrismaModule } from './prisma/prisma.module';
+import { CacheModule } from './modules/cache/cache.module';
+import { JobsModule } from './modules/jobs/jobs.module';
 import { AdminModule } from './modules/admin/admin.module';
 import { AgreementsModule } from './modules/agreements/agreements.module';
 import { AuthModule } from './modules/auth/auth.module';
@@ -28,13 +30,10 @@ import { UsersModule } from './modules/users/users.module';
 
 @Module({
   imports: [
-    ThrottlerModule.forRoot([
-      {
-        ttl: 60_000,
-        limit: 100,
-      },
-    ]),
+    ThrottlerModule.forRoot([{ ttl: 60_000, limit: 100 }]),
     PrismaModule,
+    CacheModule,
+    JobsModule,
     AuthModule,
     UsersModule,
     PropertiesModule,
