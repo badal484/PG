@@ -5,6 +5,21 @@ import { CurrentUser } from '../../common/decorators/current-user.decorator';
 import { JwtAuthGuard } from '../../common/guards/jwt-auth.guard';
 import { PmsService } from './pms.service';
 
+// ── /pms/my-properties — standalone endpoint ─────────────────────────────────
+@ApiTags('PMS')
+@ApiBearerAuth()
+@UseGuards(JwtAuthGuard)
+@Controller('pms')
+export class PmsRootController {
+  constructor(private readonly pms: PmsService) {}
+
+  @Get('my-properties')
+  myProperties(@CurrentUser('id') userId: string) {
+    return this.pms.myProperties(userId);
+  }
+}
+
+// ── /pms/:propertyId/* — property-scoped endpoints ───────────────────────────
 @ApiTags('PMS')
 @ApiBearerAuth()
 @UseGuards(JwtAuthGuard)

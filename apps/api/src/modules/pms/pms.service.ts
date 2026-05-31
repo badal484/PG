@@ -7,6 +7,36 @@ import { PrismaService } from '../../prisma/prisma.service';
 export class PmsService {
   constructor(private readonly prisma: PrismaService) {}
 
+  async myProperties(userId: string) {
+    // Returns properties where the user is staff (MANAGER/WARDEN/etc)
+    // or owner properties if the user is an OWNER
+    const staffAssignments = await this.prisma.propertyStaff.findMany({
+      where: { userId, isActive: true },
+      include: {
+        property: {
+          select: {
+            id: true,
+            name: true,
+            city: true,
+            mainPhotoUrl: true,
+            totalBeds: true,
+            occupiedBeds: true,
+          },
+        },
+      },
+    });
+
+    if (staffAssignments.length > 0) {
+      return staffAssignments.map((s) => ({ ...s.property, role: s.role }));
+    }
+
+    // Fall back to owned properties
+    return this.prisma.property.findMany({
+      where: { ownerId: userId, isActive: true },
+      select: { id: true, name: true, city: true, mainPhotoUrl: true, totalBeds: true, occupiedBeds: true },
+    });
+  }
+
   bedMap(propertyId: string) {
     return this.prisma.property.findUnique({
       where: { id: propertyId },

@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common';
-import { PmsController } from './pms.controller';
+import { PmsController, PmsRootController } from './pms.controller';
 import { PmsService } from './pms.service';
 
 @Module({
-  controllers: [PmsController],
+  controllers: [PmsRootController, PmsController],
   providers: [PmsService],
   exports: [PmsService],
 })
